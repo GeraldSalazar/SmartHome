@@ -1,0 +1,14 @@
+:host{
+    width: 100%;
+    background-color: rgba(192, 192, 192, 0.315);
+    margin: 0.25rem;
+}
+aside.device-status-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

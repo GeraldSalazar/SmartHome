@@ -12,7 +12,7 @@ const smartHomeRouter = require('./src/routes/smart-home.route')
 var app = express();
 
 // middlewares
-app.use(cors({ origin: true }))
+app.use(cors({origin: '*'}))
 app.use(bodyParser.json())
 app.use('/api/login', authRouter)
 app.use('/api', smartHomeRouter)

@@ -1,0 +1,4 @@
+<i class="fa-solid fa-lightbulb"></i>
+
+<p class="led-name" >Location:<span>{{ledName}}</span> </p>
+<p class="led-state" [ngStyle]="{'color': (isLedOn) ? '#00b31e' : '#b30000'}">{{isLedOn ? 'ON' : 'OFF'}}</p>

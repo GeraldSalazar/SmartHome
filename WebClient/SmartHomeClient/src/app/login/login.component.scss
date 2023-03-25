@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+$font-family: 'Roboto', sans-serif;
+@mixin btn($fontcolor: #FAFAFA){
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  padding: 15px;
+  background: #004badcc;
+  color: $fontcolor;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+@mixin input($bkgnd: #ffffff){
+  font-family: $font-family;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  outline: 0;
+  font-size: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  background: $bkgnd;
+}
+body{
+  font-family: $font-family;
+}
+.login-form{
+    margin-top: 20px;
+}
+.container{
+  padding: 2% 0 0;
+  width: 40%;
+  margin: auto;
+}
+.form{
+  position: relative;
+  z-index: 1;
+  max-width: 50%;
+  margin: 0 auto 100px;
+  padding: 15%;
+  background: #f1f1f1;
+}
+.form {
+  input{
+    @include input; 
+  }
+  .btn{
+    @include btn;
+    margin-top: 15px;
+  }
+  h2{
+    color: #5f7079;
+    font-family: $font-family;
+  }
+}

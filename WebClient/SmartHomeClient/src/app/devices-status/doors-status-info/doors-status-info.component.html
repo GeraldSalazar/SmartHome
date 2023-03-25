@@ -1,0 +1,4 @@
+<i class="fa-solid fa-door-open"></i>
+
+<p class="door-name" >Location:<span>{{doorName}}</span> </p>
+<p class="door-state" [ngStyle]="{'color': (isDoorOpen) ? '#00b31e' : '#b30000'}">{{isDoorOpen ? 'OPEN' : 'CLOSED'}}</p>

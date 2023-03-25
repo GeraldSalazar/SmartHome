@@ -1,0 +1,26 @@
+$base-color: rgb(199, 4, 173);
+:host{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+i{
+    color: $base-color;
+    background-color: transparent;
+    font-size: 1rem;
+}
+.camera-state{
+    margin-left: auto;
+}
+.camera-name{
+    margin-left: 0.5rem;
+    font-style: italic;
+
+}
+.camera-name span{ 
+    margin: 0 0.75rem 0 0.25rem;
+    font-weight: 600;
+}
+p{
+    font-size: 0.9rem;
+}
