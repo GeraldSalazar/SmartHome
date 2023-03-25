@@ -1,12 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { SmartDevice } from '../models/smart-device';
+import { AppconfigService } from './appconfig.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SmartHomeDoorService {
+export class SmartHomeDoorService{
 
   public doors: any[] = [
     {id: 1, name: 'MAIN DOOR', state: false},
@@ -15,13 +16,17 @@ export class SmartHomeDoorService {
     {id: 4, name: 'BACK DOOR', state: false},
   ]
 
-  apiAddress: string = 'http://localhost:3000/'
+  constructor(private http: HttpClient, private appConfigService: AppconfigService) { }
 
-  constructor(private http: HttpClient) { }
-  
   getStateAllDoors(): Observable<SmartDevice[]>{
     const doorsPath = 'api/doors'
-    return this.http.get<SmartDevice[]>(this.apiAddress+doorsPath)
+    return this.http.get<SmartDevice[]>(this.appConfigService.apiBaseUrl+doorsPath)
+  }
+
+  getDoorState(id: number): Observable<SmartDevice>{
+    const doorPath = 'api/door'
+    const options = { params: new HttpParams().set('id', id) }; //'https://localhost:3000/api/door?id'
+    return this.http.get<SmartDevice>(this.appConfigService.apiBaseUrl+doorPath, options)
   }
 
   switchDoor(doorID: number){
@@ -31,12 +36,5 @@ export class SmartHomeDoorService {
       }
     });
   }
-
-  getDoorState(id: number): Observable<SmartDevice>{
-    const doorPath = 'api/door'
-    const options = { params: new HttpParams().set('id', id) }; //'https://localhost:3000/api/door?id'
-    return this.http.get<SmartDevice>(this.apiAddress+doorPath, options)
-  }
-
 
 }

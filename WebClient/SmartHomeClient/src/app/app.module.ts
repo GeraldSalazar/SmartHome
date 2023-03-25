@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,6 +14,7 @@ import { DoorComponent } from './home-layout/devices/door/door.component';
 import { LEDlightComponent } from './home-layout/devices/ledlight/ledlight.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { LoginComponent } from './login/login.component';
+import { AppconfigService } from './services/appconfig.service';
 import { SmartHomeIndexComponent } from './smart-home-index/smart-home-index.component';
 
 @NgModule({
@@ -36,7 +37,18 @@ import { SmartHomeIndexComponent } from './smart-home-index/smart-home-index.com
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [AppconfigService],
+      useFactory: (appConfigService: AppconfigService) => {
+        return () => {
+          return appConfigService.loadAppConfig();
+        };
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

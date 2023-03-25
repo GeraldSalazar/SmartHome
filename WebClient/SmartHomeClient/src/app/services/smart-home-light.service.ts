@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { SmartDevice } from '../models/smart-device';
+import { AppconfigService } from './appconfig.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,25 +17,23 @@ export class SmartHomeLightService {
     {id: 5, name: 'BATHROOM', state: false},
   ]
 
-  apiAddress: string = 'http://localhost:3000/'
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private appConfigService: AppconfigService) { }
   
   getStateAllLights(): Observable<SmartDevice[]>{
     const lightsPath = 'api/lights'
-    return this.http.get<SmartDevice[]>(this.apiAddress+lightsPath)
+    return this.http.get<SmartDevice[]>(this.appConfigService.apiBaseUrl+lightsPath)
   }
 
   getLightState(id: number): Observable<SmartDevice>{
     const lightPath = 'api/light'
     const options = { params: new HttpParams().set('id', id) }; //'https://localhost:3000/api/light?id'
-    return this.http.get<SmartDevice>(this.apiAddress+lightPath, options)
+    return this.http.get<SmartDevice>(this.appConfigService.apiBaseUrl+lightPath, options)
   }
 
   changeLightState(id: number): Observable<boolean>{
     const lightPath = 'api/light'
     const options = { params: new HttpParams().set('id', id) }; //'https://localhost:3000/api/light?id'
-    return this.http.post<boolean>(this.apiAddress+lightPath, {}, options)
+    return this.http.post<boolean>(this.appConfigService.apiBaseUrl+lightPath, {}, options)
   }
 
   switchLED(ledID: number){

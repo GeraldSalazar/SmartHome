@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserCredentials } from '../models/user';
 import { AuthService } from '../services/auth.service';
 
@@ -10,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent {
   loginForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private authService: AuthService){}
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){}
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       user: [""],
@@ -21,9 +22,9 @@ export class LoginComponent {
     console.log(this.loginForm.value);
     const userData: UserCredentials = this.loginForm.value;
     if(this.checkCredentials(userData)){
-        // call service to check credentials from backend
         this.authService.checkIfUserAuthorized(userData).subscribe((isAuthorized: boolean) => {
           if(isAuthorized){
+            this.router.navigate(['/smart-home'])
           }else{
             alert("Usuario no está registrado como admin")
           }
