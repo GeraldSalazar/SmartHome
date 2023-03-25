@@ -1,0 +1,78 @@
+$led-room1-margin-x: 14.65%;
+$led-room1-margin-y: 19.75%;
+
+$door-room1-margin-x: 28.75%;
+$door-room1-margin-y: 27%;
+
+
+div {
+    display: flex;
+    justify-content: left;
+    height: 100vh;
+    position: relative;
+
+    h1.title{
+        font-size: 3rem;
+        transform: rotate(-0.10turn);
+        font-family:DotumChe;
+        position: absolute;
+        margin-left: 76%;
+        margin-top: 52%;
+    }
+
+    ////////////-------- Home Layout Image --------\\\\\\\\\\\\\
+    #house-layout-img{
+        margin: auto 0 auto 0;
+        height: 95%;
+    }
+    /////////////////////////////////////////////////////////////
+    app-door, app-ledlight, app-camera{
+        position: absolute;
+    }
+    ////////////-------- LEDS Styles --------\\\\\\\\\\\\\
+    app-ledlight.led-room1{
+        margin-left: $led-room1-margin-x;
+        margin-top: $led-room1-margin-y;
+    }
+    app-ledlight.led-room2{
+        margin-left: calc($led-room1-margin-x - 3%);
+        margin-top: calc($led-room1-margin-y + 34.5%);
+    }
+    app-ledlight.led-living-room{
+        margin-left: calc($led-room1-margin-x + 29.9029%);
+        margin-top: calc($led-room1-margin-y - 1%);
+    }
+    app-ledlight.led-kitchen{
+        margin-left: calc($led-room1-margin-x + 45.35%);
+        margin-top: calc($led-room1-margin-y + 15%);
+    }
+    app-ledlight.led-bathroom{
+        margin-left: calc($led-room1-margin-x + 42.1%);
+        margin-top: calc($led-room1-margin-y + 35.5%);
+    }
+    //////////////////////////////////////////////////////
+    
+    ////////////-------- Doors Styles --------\\\\\\\\\\\\\
+    app-door.door-room1{
+        margin-left: $door-room1-margin-x;
+        margin-top: $door-room1-margin-y;
+    }
+    app-door.door-room2{
+        margin-left: $door-room1-margin-x;
+        margin-top: calc($door-room1-margin-y + 15%);
+    }
+    app-door.door-main{
+        margin-left: calc($door-room1-margin-x + 8%);
+        margin-top: calc($door-room1-margin-y + 37.5%);
+    }
+    app-door.door-back{
+        margin-left: calc($door-room1-margin-x + 43%);
+        margin-top: calc($door-room1-margin-y - 6.5%);
+    }
+    //////////////////////////////////////////////////////
+    app-camera{
+        margin-left: 94%;
+        margin-top: 5%;
+    }
+    
+}

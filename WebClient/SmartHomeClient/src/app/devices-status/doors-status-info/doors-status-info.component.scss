@@ -1,0 +1,25 @@
+$base-color: rgb(3, 0, 194);
+:host{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+i{
+    color: $base-color;
+    background-color: transparent;
+    font-size: 1rem;
+}
+.door-state{
+    margin-left: auto;
+}
+.door-name{
+    margin-left: 0.5rem;
+    font-style: italic;
+}
+.door-name span{ 
+    margin: 0 0.75rem 0 0.25rem;
+    font-weight: 600;
+}
+p{
+    font-size: 0.9rem;
+}

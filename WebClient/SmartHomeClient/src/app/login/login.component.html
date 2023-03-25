@@ -1,0 +1,12 @@
+<img src="../../assets/images/SmartHomeLogo.png" alt="Smart Home">
+<div class="container">
+  <div class="form">
+    <h2>Login</h2>
+    <hr>
+    <form [formGroup]="loginForm" action="#" class="login-form" (ngSubmit)="onSubmit()">
+      <input type="text" name="username" placeholder="Username / Email" formControlName="user" autocomplete="nope">
+      <input type="password" name="password" placeholder="Password" formControlName="password" >
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+</div>

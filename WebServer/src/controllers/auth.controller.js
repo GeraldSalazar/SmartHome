@@ -1,11 +1,9 @@
 const usersService = require('../services/auth-service.service')
 
 async function authenticateUser(req, res, next){
-    console.log('Got it!')
-    console.log(req.body)
-    console.log(usersService.getUsersData())
+    console.log('Authenticating user...')
     try {
-        res.json({"userHasAccess": false});
+        res.send(usersService.validateUserData(req.body))
     } catch (err) {
         console.error(`Error while getting login info`, err.message);
         next(err);
