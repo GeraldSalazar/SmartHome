@@ -1,11 +1,12 @@
-
+const lightService = require('../services/light-service.service')
+const doorService = require('../services/door-service.service')
 /// ------------------------------------------------------------------ ///
 /// ---------------- Controllers for the house lights ---------------- ///
 
 async function getAllLightsState(req, res, next){
     console.log('getAllLightsState executed!!')
     try {
-        res.json({"all-lights": true});
+        res.json(lightService.getStateAllLights());
     } catch (err) {
         console.error(`Error while getting all lights state`, err.message);
         next(err);
@@ -14,7 +15,7 @@ async function getAllLightsState(req, res, next){
 async function getLightState(req, res, next){
     console.log('getLightState executed!!')
     try {
-        res.json({"a-light": true});
+        res.json(lightService.getLightState(req.query.id));
     } catch (err) {
         console.error(`Error while getting a light state`, err.message);
         next(err);
@@ -22,6 +23,8 @@ async function getLightState(req, res, next){
 }
 async function setLightState(req, res, next){
     console.log('setLightState executed!!')
+    console.log(req.originalUrl)
+    console.log(req.query)
     try {
         res.json({"set-light": true});
     } catch (err) {
@@ -36,7 +39,7 @@ async function setLightState(req, res, next){
 async function getAllDoorsState(req, res, next){
     console.log('getAllDoorsState executed!!')
     try {
-        res.json({"all-doors": true});
+        res.json(doorService.getStateAllDoors());
     } catch (err) {
         console.error(`Error while getting all doors state`, err.message);
         next(err);
@@ -45,7 +48,7 @@ async function getAllDoorsState(req, res, next){
 async function getDoorState(req, res, next){
     console.log('getDoorState executed!!')
     try {
-        res.json({"a-door": true});
+        res.json(doorService.getDoorState(req.query.id));
     } catch (err) {
         console.error(`Error while getting a door state`, err.message);
         next(err);
