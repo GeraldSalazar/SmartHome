@@ -10,11 +10,11 @@ router.get('/lights', smartHomeController.getAllLightsState);
 
 // GET api/light/:id
 // get the state for a particular light
-router.get('/light/:id', smartHomeController.getLightState);
+router.get('/light', smartHomeController.getLightState);
 
 // POST api/light/:id
 // set the state (ON/OFF) for a particular light
-router.post('/light/:id', smartHomeController.setLightState);
+router.post('/light', smartHomeController.setLightState);
 
 
 /// ----------------  Routes for the house doors  ---------------- ///
