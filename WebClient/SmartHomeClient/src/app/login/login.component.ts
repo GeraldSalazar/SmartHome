@@ -23,7 +23,10 @@ export class LoginComponent {
     if(this.checkCredentials(userData)){
         // call service to check credentials from backend
         this.authService.checkIfUserAuthorized(userData).subscribe((isAuthorized: boolean) => {
-          console.log("User is valid!")
+          if(isAuthorized){
+          }else{
+            alert("Usuario no está registrado como admin")
+          }
         })
         // if user is registered go to home control page
     }
