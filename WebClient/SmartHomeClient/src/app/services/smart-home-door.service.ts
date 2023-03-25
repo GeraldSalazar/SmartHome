@@ -9,11 +9,11 @@ import { AppconfigService } from './appconfig.service';
 })
 export class SmartHomeDoorService{
 
-  public doors: any[] = [
-    {id: 1, name: 'MAIN DOOR', state: false},
-    {id: 2, name: 'DOOR ROOM 1', state: false},
-    {id: 3, name: 'DOOR ROOM 2', state: false},
-    {id: 4, name: 'BACK DOOR', state: false},
+  public doors: SmartDevice[] = [
+    {id: 1, name: 'MAIN DOOR', type: 'DOOR',state: false},
+    {id: 2, name: 'DOOR ROOM 1', type: 'DOOR', state: false},
+    {id: 3, name: 'DOOR ROOM 2', type: 'DOOR', state: false},
+    {id: 4, name: 'BACK DOOR', type: 'DOOR', state: false},
   ]
 
   constructor(private http: HttpClient, private appConfigService: AppconfigService) { }

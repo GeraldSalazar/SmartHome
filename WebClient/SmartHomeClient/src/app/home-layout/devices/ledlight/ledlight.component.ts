@@ -12,6 +12,9 @@ export class LEDlightComponent {
   @Input('id') ledID!: number;
 
   changeLightState(){
-    this.lightService.switchLED(this.ledID)
+    this.lightService.changeLightState(this.ledID).subscribe((akw:boolean) => {
+      console.log(akw)
+    })
+    //this.lightService.switchLED(this.ledID)
   }
 }

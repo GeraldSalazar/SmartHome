@@ -9,12 +9,12 @@ import { AppconfigService } from './appconfig.service';
 })
 export class SmartHomeLightService {
 
-    public leds: any[] = [
-    {id: 1, name: 'ROOM1', state: true},
-    {id: 2, name: 'ROOM2', state: false},
-    {id: 3, name: 'LIVING ROOM', state: false},
-    {id: 4, name: 'KITCHEN', state: false},
-    {id: 5, name: 'BATHROOM', state: false},
+    public leds: SmartDevice[] = [
+    {id: 1, name: 'ROOM1', type: "LED",state: false},
+    {id: 2, name: 'ROOM2', type: "LED", state: false},
+    {id: 3, name: 'LIVING ROOM',type: "LED", state: false},
+    {id: 4, name: 'KITCHEN', type: "LED", state: false},
+    {id: 5, name: 'BATHROOM', type: "LED", state: false},
   ]
 
   constructor(private http: HttpClient, private appConfigService: AppconfigService) { }
@@ -33,6 +33,7 @@ export class SmartHomeLightService {
   changeLightState(id: number): Observable<boolean>{
     const lightPath = 'api/light'
     const options = { params: new HttpParams().set('id', id) }; //'https://localhost:3000/api/light?id'
+    console.log(lightPath)
     return this.http.post<boolean>(this.appConfigService.apiBaseUrl+lightPath, {}, options)
   }
 
