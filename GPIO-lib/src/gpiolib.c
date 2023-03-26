@@ -8,6 +8,8 @@
 int main(int argc, char *argv[])
 {
     int err = 0;
+    int status = gpioInitialise();
+    printf("gpio status%d\n", status);
     switch (argc)
     {
     case 3:

@@ -1094,7 +1094,6 @@ int gpioWrite(unsigned gpio, unsigned level);
 /*D
 Sets the GPIO level, on or off.
 
-
 . .
  gpio: 0-53
 level: 0-1
@@ -6570,3 +6569,4 @@ after this command is issued.
 /*DEF_E*/
 
 #endif
+
