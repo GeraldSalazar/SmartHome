@@ -1469,7 +1469,6 @@ static char * myTimeStamp()
 
    return buf;
 }
-
 /* ----------------------------------------------------------------------- */
 
 int gpioRead(unsigned gpio)
