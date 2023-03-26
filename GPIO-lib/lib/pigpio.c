@@ -1481,7 +1481,7 @@ int gpioRead(unsigned gpio)
    if (gpio > PI_MAX_GPIO)
       SOFT_ERROR(PI_BAD_GPIO, "bad gpio (%d)", gpio);
 
-   if ((*(gpioReg + GPLEV0 + BANK) & BIT) != 0) return PI_ON;
+   if ((*(gpioReg + GPLEV0 + BANK) & BIT) != 0) return ;
    else                                         return PI_OFF;
 }
 

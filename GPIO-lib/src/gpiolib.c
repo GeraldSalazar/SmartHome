@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     case 3:
     {
         unsigned pin = (unsigned)atoi(argv[2]);
-        if (argv[1] == "-r")
+        if (!strcmp(argv[1],"-r"))
         {
             printf("%d\n", gpioRead(pin));
         }
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     {
         unsigned pin = (unsigned)atoi(argv[2]);
         unsigned level = (unsigned)atoi(argv[3]);
-        if (argv[1] == "-w")
+        if (!strcmp(argv[1],"-w"))
         {
             printf("%d\n", gpioWrite(pin, level));
         }
