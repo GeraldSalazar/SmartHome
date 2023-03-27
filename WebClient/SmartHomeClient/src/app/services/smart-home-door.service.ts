@@ -29,6 +29,10 @@ export class SmartHomeDoorService{
     return this.http.get<SmartDevice>(this.appConfigService.apiBaseUrl+doorPath, options)
   }
 
+  updateDoors(doors: SmartDevice[]){
+    this.doors = doors
+  }
+
   switchDoor(doorID: number){
     this.doors.forEach(door => {
       if(door.id == doorID){
