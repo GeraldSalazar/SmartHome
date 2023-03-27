@@ -30,11 +30,15 @@ export class SmartHomeLightService {
     return this.http.get<SmartDevice>(this.appConfigService.apiBaseUrl+lightPath, options)
   }
 
-  changeLightState(id: number): Observable<boolean>{
+  changeLightState(id: number): Observable<SmartDevice[]>{
     const lightPath = 'api/light'
     const options = { params: new HttpParams().set('id', id) }; //'https://localhost:3000/api/light?id'
     console.log(lightPath)
-    return this.http.post<boolean>(this.appConfigService.apiBaseUrl+lightPath, {}, options)
+    return this.http.post<SmartDevice[]>(this.appConfigService.apiBaseUrl+lightPath, {}, options)
+  }
+
+  updateLights(lights: SmartDevice[]){
+    this.leds = lights
   }
 
   switchLED(ledID: number){

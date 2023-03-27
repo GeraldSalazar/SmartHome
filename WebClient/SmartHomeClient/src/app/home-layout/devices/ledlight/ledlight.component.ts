@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SmartDevice } from 'src/app/models/smart-device';
 import { SmartHomeLightService } from 'src/app/services/smart-home-light.service';
 
 @Component({
@@ -12,8 +13,8 @@ export class LEDlightComponent {
   @Input('id') ledID!: number;
 
   changeLightState(){
-    this.lightService.changeLightState(this.ledID).subscribe((akw:boolean) => {
-      console.log(akw)
+    this.lightService.changeLightState(this.ledID).subscribe((newLights: SmartDevice[]) => {
+      this.lightService.updateLights(newLights)
     })
     //this.lightService.switchLED(this.ledID)
   }
