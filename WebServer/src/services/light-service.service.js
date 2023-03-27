@@ -7,7 +7,6 @@ function switchLightState(lightID){
     // send back the object to controller
     // controller send back to web client the updated data of the smart device obj or the error
 }
-
 function getLightState(lightID){
     console.log("getLightState service!. Light ID to change: "+lightID)
     // create process for C lib binary
@@ -17,7 +16,6 @@ function getLightState(lightID){
     // controller send back to web client the updated data of the smart device obj
     return buildLightObj(lightID, true)
 }
-
 function getStateAllLights(){
     console.log("getStateAllLights service!. Getting the state of every LED")
     // create process for C lib binary
