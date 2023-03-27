@@ -22,9 +22,8 @@ async function getLightState(req, res, next){
     }
 }
 async function setLightState(req, res, next){
-    console.log('setLightState executed!!')
     console.log(req.originalUrl)
-    console.log(req.query)
+    lightService.switchLightState(req.query.id)
     try {
         res.json({"set-light": true});
     } catch (err) {

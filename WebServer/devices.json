@@ -1,0 +1,60 @@
+{
+  "LEDS": {
+    "1": {
+      "id": 1,
+      "name": "ROOM1",
+      "type": "LED",
+      "state": true
+    },
+    "2": {
+      "id": 2,
+      "name": "ROOM2",
+      "type": "LED",
+      "state": true
+    },
+    "3": {
+      "id": 3,
+      "name": "LIVING ROOM",
+      "type": "LED",
+      "state": false
+    },
+    "4": {
+      "id": 4,
+      "name": "KITCHEN",
+      "type": "LED",
+      "state": false
+    },
+    "5": {
+      "id": 5,
+      "name": "BATHROOM",
+      "type": "LED",
+      "state": false
+    }
+  },
+  "DOORS": {
+    "1": {
+      "id": 1,
+      "name": "MAIN DOOR",
+      "type": "DOOR",
+      "state": false
+    },
+    "2": {
+      "id": 2,
+      "name": "DOOR ROOM 1",
+      "type": "DOOR",
+      "state": false
+    },
+    "3": {
+      "id": 3,
+      "name": "DOOR ROOM 2",
+      "type": "DOOR",
+      "state": false
+    },
+    "4": {
+      "id": 4,
+      "name": "BACK DOOR",
+      "type": "DOOR",
+      "state": false
+    }
+  }
+}

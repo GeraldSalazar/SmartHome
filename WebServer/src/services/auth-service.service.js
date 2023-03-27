@@ -1,5 +1,4 @@
 const usersData = './users.json'
-const { Console } = require('console');
 const fs = require('fs');
 
 function validateUserData(user){

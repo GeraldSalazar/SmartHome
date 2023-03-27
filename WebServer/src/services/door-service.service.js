@@ -1,3 +1,5 @@
+const deviceUtils = require('./device-utils.service')
+
 function getDoorState(doorID){
     console.log("getDoorState service!. Door ID to change: "+doorID)
     // create process for C lib binary
